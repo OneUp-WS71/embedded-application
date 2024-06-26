@@ -1,0 +1,10 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+DHT sensor library
+Adafruit Unified Sensor
+Adafruit LiquidCrystal
+WiFi
+HttpClient
+TinyGPSPlusPlus
+
