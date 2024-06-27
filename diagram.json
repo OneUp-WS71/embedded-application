@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "author": "OneUp",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 100, "left": 50, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht22", "top": 48, "left": 225, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potentiometer", "top": 229, "left": 220, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "resistor",
+      "top": 100,
+      "left": 280,
+      "rotate": 90,
+      "attrs": { "value": "10000" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 377.83, "left": -3.2, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": -16, "left": -95.2, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "dht22:GND", "black", [ "h-45", "v-176.8", "h259.2" ] ],
+    [ "esp:3V3", "dht22:VCC", "red", [ "h0" ] ],
+    [ "esp:GND.1", "potentiometer:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "potentiometer:VCC", "red", [ "h0" ] ],
+    [ "esp:15", "dht22:SDA", "yellow", [ "h-45", "v-176.8", "h259.2" ] ],
+    [ "esp:34", "potentiometer:SIG", "blue", [ "h0" ] ],
+    [ "dht22:SDA", "resistor:1", "yellow", [ "v0", "h0" ] ],
+    [ "resistor:2", "dht22:VCC", "yellow", [ "v0", "h0" ] ],
+    [ "esp:21", "lcd1:D4", "green", [ "h0" ] ],
+    [ "esp:22", "lcd1:D5", "green", [ "h0" ] ],
+    [ "esp:23", "lcd1:D6", "green", [ "h0" ] ],
+    [ "esp:26", "lcd1:D7", "green", [ "h0" ] ],
+    [ "esp:27", "lcd1:RS", "green", [ "h0" ] ],
+    [ "esp:32", "lcd1:RW", "green", [ "h0" ] ],
+    [ "esp:33", "lcd1:E", "green", [ "h0" ] ],
+    [ "esp:GND.1", "ldr1:GND", "black", [ "h0" ] ],
+    [ "esp:3V3", "ldr1:VCC", "green", [ "h-169.81", "v-128.8" ] ],
+    [ "esp:35", "ldr1:AO", "green", [ "h41.39", "v-119.2" ] ]
+  ],
+  "dependencies": {}
+}
